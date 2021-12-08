@@ -54,7 +54,7 @@ public class Search extends HttpServlet {
             out.println("<li class='nav-item'>");
             out.println("<a class='nav-link active' aria-current='page' href='#'>Home</a></li>");
             out.println("<li class='nav-item'>");
-            out.println("<a class='nav-link' href='#'>Link</a></li>");
+            out.println("<a class='nav-link' href='Profile.jsp'>Profile</a></li>");
             out.println("<form class='d-flex' method='POST' action='Search'>");
             out.println(
                     "<input class='form-control me-2' type='search' placeholder='Anime/User' aria-label='Search' name='search'>");
@@ -62,11 +62,18 @@ public class Search extends HttpServlet {
             out.println("</form>");
             out.println("</div>");
             out.println("<button class='btn' id='btn' onClick='darkMode()'><i class='fa fa-moon-o'></i></button>");
-            // out.print("<button type='button' class='btn btn-dark'
-            // onclick='changeBorders()'>Change Layout</button>");
+
 
             out.println("</div>");
             out.println("</nav>");
+			if(req.getParameter("status")!=null){
+				if(req.getParameter("status").equals("success")){
+					out.print("<div class='alert alert-success' role='alert'>Anime successfuly added to your list</div>");
+				}
+				else{
+					out.print("<div class='alert alert-danger' role='alert'>This anime is already in your list</div>");
+				}
+			}
 
             out.print("<div class='container rounded'>");
 
@@ -98,28 +105,28 @@ public class Search extends HttpServlet {
         } catch (SQLException e1) {
         }
 
-        out.print("<div class='row justify-content-center margin'>");
+        out.print("<div class='row justify-content-center animate__animated animate__fadeInDown margin border border-primary rounded'>");
 
-        out.print("<div class='col-md-12 border border-primary rounded ' align='center'>");
+        out.print("<div class='col-md-12 border border-primary' align='center'>");
         out.print("<h4>Users</h4>");
         out.print("</div>");
 
-        out.print("<div class='col border border-primary rounded' align='center'>");
+        out.print("<div class='col' align='center'>");
         out.print("<p>Username<p>");
         out.print("</div>");
-        out.print("<div class='col border border-primary rounded' align='center'>");
+        out.print("<div class='col' align='center'>");
         out.print("<p>Entries<p>");
         out.print("</div>");
         out.print("<div class='w-100'></div>");
 
         try {
             while (result.next()) {
-                out.print("<div class='col border border-primary rounded' align='center'>");
+                out.print("<div class='col' align='center'>");
                 out.print("<a href='animList?id=" + result.getString("userid") + "' style='no-decoration'>"
                         + result.getString("username") + "</a>");
                 out.print("</div>");
 
-                out.print("<div class='col border border-primary rounded' align='center'>");
+                out.print("<div class='col' align='center'>");
                 out.print("<p>" + result.getInt("entry") + "</p>");
                 out.print("</div>");
                 out.print("<div class='w-100'></div>");
@@ -139,20 +146,19 @@ public class Search extends HttpServlet {
         } catch (SQLException e1) {
         }
 
-        out.print(
-                "<div class='row justify-content-center animate__animated animate__fadeInDown margin border border-primary rounded'>");
+        out.print("<div class='row justify-content-center animate__animated animate__fadeInDown margin border border-primary rounded'>");
 
         out.print("<div class='col-md-12 border border-primary' align='center'>");
         out.print("<h4>Animes</h4>");
         out.print("</div>");
 
-        out.print("<div class='col border border-primary rounded' align='center'>");
+        out.print("<div class='col' align='center'>");
         out.print("<p>Image<p>");
         out.print("</div>");
-        out.print("<div class='col border border-primary rounded' align='center'>");
+        out.print("<div class='col' align='center'>");
         out.print("<p>Name<p>");
         out.print("</div>");
-        out.print("<div class='col border border-primary rounded' align='center'>");
+        out.print("<div class='col' align='center'>");
         out.print("<p>Option<p>");
         out.print("</div>");
 
@@ -160,17 +166,17 @@ public class Search extends HttpServlet {
 
         try {
             while (animeListing.next()) {
-                out.print("<div class='col border border-primary rounded' align='center'>");
+                out.print("<div class='col' align='center'>");
                 out.print("<img src='" + animeListing.getString("imagelink")
                         + "' style='max-width:100px;max-height:100px;image-rendering: -webkit-optimize-contrast;' class='rounded'>");
                 out.print("</div>");
 
-                out.print("<div class='col border border-primary rounded' align='center'>");
+                out.print("<div class='col' align='center'>");
                 out.print("<a href='#' style='no-decoration'>" + animeListing.getString("name") + "</a>");
                 out.print("</div>");
 
                 out.print("<div class='col' align='center' style='height:60px;width:100%'>");
-                out.print("<form method='POST' action='addToList?id=" + animeListing.getInt("animeid") + "'>");
+                out.print("<form method='POST' action='addToList?id="+animeListing.getInt("animeid")+"&name="+animeListing.getString("name")+"'>");
                 out.print("<button type='submit' class='btn btn-primary'>Add to list</button>");
                 out.print("</form>");
                 out.print("</div>");

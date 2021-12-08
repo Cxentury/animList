@@ -41,7 +41,7 @@ public class PlayVideo extends HttpServlet{
                     out.println("<li class='nav-item'>");
                     out.println("<a class='nav-link active' aria-current='page' href='#'>Home</a></li>");
                     out.println("<li class='nav-item'>");
-                    out.println("<a class='nav-link' href='#'>Link</a></li>");
+                    out.println("<a class='nav-link' href='Profile.jsp'>Profile</a></li>");
                     out.println("<form class='d-flex' method='POST' action='Search'>");
                         out.println("<input class='form-control me-2' type='search' placeholder='Anime/User' aria-label='Search' name='search'>");
                         out.println("<button class='btn btn-dark' type='submit'>Search</button>");

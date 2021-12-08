@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <title>Page de login</title>
+    <link href='boostrap/bootstrap.min.css' rel='stylesheet'>
+    <link href='custom.css' rel='stylesheet'>
+</head>
+
+
+<div class='container-fluid'>
+    <nav class='navbar navbar-expand-lg navbar-light bg-light'>
+        <div class='container-fluid'>
+            <a class='navbar-brand' href='#'>AnimeList</a>
+            <button class='navbar-toggler' type='button' data-bs-toggle='collapse'
+                data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false'
+                aria-label='Toggle navigation'>
+                <span class='navbar-toggler-icon'></span>
+            </button>
+            <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+                <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
+                    <li class='nav-item'>
+                        <a class='nav-link active' aria-current='page' href='#'>Home</a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='#'>Link</a>
+                    </li>
+                    <li class='nav-item dropdown'>
+                        <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button'
+                            data-bs-toggle='dropdown' aria-expanded='false'>Dropdown</a>
+                        <ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                            <li><a class='dropdown-item' href='#'>Action</a></li>
+                            <li><a class='dropdown-item' href='#'>Another action</a></li>
+                            <li>
+                                <hr class='dropdown-divider'>
+                            </li>
+                            <li>
+                            <li><a class='dropdown-item' href='#'>Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link href=' addAnime'>Add</a>
+                    </li>
+                </ul>
+                <form class='d-flex' method='POST' action='Search'>
+                    <input class='form-control me-2' type='search' placeholder='Search' aria-label='Search' name='user'>
+                    <button class='btn btn-outline-success' type='submit'>Search for user</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class='page-header'>
+        <h1>Add an anime</h1>
+    </div>
+
+
+
+    <form class='form-horizontal' method='get' action='Maj2'>
+        <div class='form-group row'>
+            <label for='inputLogin' class='col-2 control-label'>Name</label>
+            <div class='col-10'>
+                <input type='text' class='form-control' name='name'>
+            </div>
+        </div>
+
+        <div class='form-group row'>
+            <label for='inputPassword' class='col-2 control-label'>userID</label>
+            <div class='col-10'>
+                <input type='text' class='form-control' name='id'>
+            </div>
+        </div>
+
+        <div class='form-group row'>
+            <label for='inputNom' class='col-2 control-label'>Link</label>
+            <div class='col-10'>
+                <input type='text' class='form-control' name='link'>
+            </div>
+        </div>
+
+        <div class='form-group row' method='POST' action='Search'>
+            <div class='col-offset-2 col-10'>
+                <button type='submit' class='btn btn-primary'>Mettre à jour</button>
+            </div>
+        </div>
+        <script> function changeBorders() {var names=[document.getElementById('border'),NAME.className,document.getElementById('borderImageCol'),document.getElementById('borderNameCol'),document.getElementById('borderlink'),document.getElementById('borderImage'),
+            document.getElementById('borderName'),document.getElementById('borderWatch')];
+            if (names[1]=="col"){
+                NAME.className=borderClass;imagecol.className=borderClass;namecol.className=borderClass;borderlink.className=borderClass;borderimage.className=borderClass;
+                borderName.className=borderCLass;borderwatch.className=borderClass;}
+            else{NAME.className="col";}}
+        </script>
+    </form>
+
+</div>
+
+</body>
+
+</html>

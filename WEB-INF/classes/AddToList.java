@@ -3,6 +3,8 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
+import userPackage.User;
+
 import java.sql.*;
 
 @WebServlet("/addToList")
@@ -42,8 +44,7 @@ public class AddToList extends HttpServlet{
             ResultSet result=check.executeQuery();
 
             if(result.isBeforeFirst()){
-                out.print("<div class='alert alert-danger' role='alert'>This anime is already in your list! <a href='animList' class='alert-link'>Return to menu</a></div>");
-                return;
+                res.sendRedirect("Search?search="+req.getParameter("name")+"&status=fail");
             }
 
             PreparedStatement request=con.prepareStatement(insert);
@@ -51,14 +52,12 @@ public class AddToList extends HttpServlet{
             request.setInt(2,user.getId());
 
             request.executeUpdate();
-
-            out.print("<div class='alert alert-success' role='alert'>Anime successfully added to list! <a href='animList' class='alert-link'>Return to menu</a></div>");
+            
+            res.sendRedirect("Search?search="+req.getParameter("name")+"&status=success");
 
         }catch (Exception e) {}
-        finally
-        {
-        try{con.close();} catch (Exception e){}
+        finally{
+            try{con.close();} catch (Exception e){out.print(e.getMessage());}
         }
-
     }
 }

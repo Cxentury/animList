@@ -22,6 +22,21 @@
     transform: scale(1.5);
 }
 
+@font-face {
+    font-family: 'BebasNeue';
+    font-weight: 500;
+    font-style: normal;
+    src: url('BebasNeue-Regular.otf') format('opentype');
+}
+
+h5{
+ font-family:'BebasNeue', sans-serif;
+}
+
 .listBackground{
     opacity: 0.5;
+}
+
+.lowMargin{
+    margin-top: 20px;
 }

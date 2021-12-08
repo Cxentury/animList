@@ -1,9 +1,11 @@
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+
+import userPackage.User;
+
 import javax.servlet.annotation.*;
 import java.sql.*;
-
 
 @WebServlet("/LoginPage")
 public class LoginPage extends HttpServlet {
@@ -42,7 +44,7 @@ public class LoginPage extends HttpServlet {
 	    
 	    if(result.next()) {
 			HttpSession session = req.getSession(true);
-			User p = new User(result.getString("login"),result.getString("password"),result.getString("username"),result.getInt("id"));
+			User p = new User(result.getString("login"),result.getString("username"),result.getString("password"),result.getInt("id"));
 			session.setAttribute("user", p);
 			con.close();
 			res.sendRedirect("animList");
@@ -57,7 +59,7 @@ public class LoginPage extends HttpServlet {
 					out.println("<div class='col-xs-12'>");
 						out.println("<div class='alert alert-danger' role='alert'>Wrong login or password</div>");
 					    con.close();
-					    out.println("<a href='../login.html'><button type='button' class='btn btn-default btn-lg'>Home</button></a>");
+					    out.println("<a href='login.html'><button type='button' class='btn btn-default btn-lg'>Home</button></a>");
 				    out.println("</div>");
 			    out.println("</div>");
 		    out.println("</div>");

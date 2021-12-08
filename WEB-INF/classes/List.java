@@ -1,6 +1,9 @@
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+
+import userPackage.User;
+
 import javax.servlet.annotation.*;
 import java.sql.*;
 
@@ -73,14 +76,13 @@ public class List extends HttpServlet{
                         out.println("<li class='nav-item'>");
                         out.println("<a class='nav-link active' aria-current='page' href='#'>Home</a></li>");
                         out.println("<li class='nav-item'>");
-                        out.println("<a class='nav-link' href='#'>Link</a></li>");
+                        out.println("<a class='nav-link' href='Profile.jsp'>Profile</a></li>");
                         out.println("<form class='d-flex' method='POST' action='Search'>");
                             out.println("<input class='form-control me-2' type='search' placeholder='Anime/User' aria-label='Search' name='search'>");
                             out.println("<button class='btn btn-dark' type='submit'>Search</button>");
                         out.println("</form>");
                     out.println("</div>");
                     out.println("<button class='btn' id='btn' onClick='darkMode()'><i class='fa fa-moon-o'></i></button>");
-                    // out.print("<button type='button' class='btn btn-dark' onclick='changeBorders()'>Change Layout</button>");
 
                 out.println("</div>");
             out.println("</nav>");
